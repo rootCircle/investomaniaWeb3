@@ -1,81 +1,77 @@
-# Turborepo starter
+# InvestomaniaWeb3
 
-This is an official starter Turborepo.
+InvestomaniaWeb3 is a decentralized finance (DeFi) application built on the Ethereum blockchain, allowing users to invest in various deals represented as non-fungible tokens (NFTs). This repository serves as the codebase for the project, providing smart contracts, frontend interfaces, and utilities for interacting with the Ethereum network and IPFS (InterPlanetary File System).
 
-## Using this example
+## Features
 
-Run the following command:
+- **Smart Contracts**: Smart contracts written in Solidity facilitate the creation, management, and execution of investment deals represented as NFTs.
+- **Frontend Application**: A frontend application built with Next.js provides a user-friendly interface for browsing deals, investing, and managing investments.
+- **IPFS Integration**: Integration with IPFS enables decentralized storage and retrieval of files associated with investment deals.
 
-```sh
-npx create-turbo@latest
-```
+## Project Structure
 
-## What's inside?
+The project structure is organized as follows:
 
-This Turborepo includes the following packages/apps:
+- **apps/web**: Frontend application directory containing the Next.js application.
+- **apps/web3**: Smart contracts and deployment scripts directory.
+- **apps/web/utils/blockchainHelper**: Utilities and functions for interacting with the Ethereum network.
+- **apps/web3/contracts**: Solidity smart contracts reside here.
 
-### Apps and Packages
+## Getting Started
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+To get started with the project, follow these steps:
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+1. Clone the repository:
 
-### Utilities
+   ```bash
+   git clone https://github.com/rootCircle/investomania-web3.git
+   ```
 
-This Turborepo has some additional tools already setup for you:
+2. Install dependencies:
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+   ```bash
+   cd investomania-web3
+   pnpm install
+   ```
 
-### Build
+3. Set up environment variables:
 
-To build all apps and packages, run the following command:
+   - Create a `.env` file in the root directory.
+   - Define the following environment variables:
+     - `PINNATA_BASE_URL`: Base URL for Pinata API.
+     - `PINNATA_JWT_TOKEN`: JWT token for Pinata API authentication.
 
-```
-cd my-turborepo
-pnpm build
-```
+4. Start the frontend application:
 
-### Develop
+   ```bash
+   pnpm run dev
+   ```
 
-To develop all apps and packages, run the following command:
+5. Access the application in your browser at `http://localhost:3000`.
 
-```
-cd my-turborepo
-pnpm dev
-```
+## Usage
 
-### Remote Caching
+The application allows users to:
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+- Browse available investment deals.
+- Invest in deals by minting NFTs.
+- Manage investments, including reverting investments and transferring NFTs.
+- Approve or reject deals as the system administrator.
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+## Contributing
 
-```
-cd my-turborepo
-npx turbo login
-```
+Contributions are welcome! If you have ideas for improvements, open an issue or submit a pull request.
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+## License
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+This project is licensed under the Apache-2.0 License - see the [LICENSE](LICENSE) file for details.
 
-```
-npx turbo link
-```
+## Acknowledgements
 
-## Useful Links
+- Special thanks to the developers of Hardhat, Next.js, IPFS, and ethers.js for providing the tools and libraries necessary for building blockchain applications.
+- Inspiration and guidance from various online tutorials, forums, and documentation resources that helped in understanding and implementing blockchain technology.
+- Special thanks to [Divyanshu](https://github.com/15IITian) and [Disha](https://github.com/Dis1309) for helping in my initial journey to the world of Blockchain :-)
 
-Learn more about the power of Turborepo:
+---
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+**Note**: Make sure to set up your environment variables and update the project-specific configurations as needed before running the application.
