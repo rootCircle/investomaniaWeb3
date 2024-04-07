@@ -1,0 +1,24 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["**/.env.*local"],
+  "globalDotEnv": [".env"],
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "env": ["PINNATA_JWT_TOKEN", "PINNATA_BASE_URL"],
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
+    "dev": {
+      "cache": false
+    },
+    "compile": {
+      "cache": false
+    },
+    "deploy:sepolia": {
+      "cache": false
+    }
+  }
+}
