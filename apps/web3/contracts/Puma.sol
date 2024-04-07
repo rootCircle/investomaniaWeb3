@@ -177,10 +177,17 @@ contract Puma is ERC721URIStorage {
                 investments[i].amountInvested != 0
             ) {
                 payable(investments[i].investorAddress).transfer(interest);
+                deals[_dealID].amountRaised -= investments[i].amountInvested;  
                 delete investments[i];
             }
         }
+
+        delete deals[_dealID];
     }
+
+
+    // transfer deal amount dec
+    // 30% transferred to whom
 
     function revertInvestment(uint256 investmentID) external payable onlyAdmin {
         require(
@@ -204,6 +211,8 @@ contract Puma is ERC721URIStorage {
         payable(investments[investmentID].investorAddress).transfer(
             investments[investmentID].amountInvested
         );
+
+        deals[investments[investmentID].dealID].amountRaised -= investments[investmentID].amountInvested;
         delete investments[investmentID];
     }
 
@@ -213,6 +222,10 @@ contract Puma is ERC721URIStorage {
         onlyAdmin
     {
         require(deals[dealID].targetAmt > 0, "Deal Does not exists!");
+        require(deals[dealID].interestRate == 0, "Deal already approved!");
+        require(block.timestamp >= deals[dealID].floatingEndTimestamp, "Can't approve deal before end of floating time!");
+
+
         if (deals[dealID].amountRaised == deals[dealID].targetAmt || approved) {
             require(
                 balanceOf(systemAddress) >= deals[dealID].amountRaised,
@@ -223,15 +236,16 @@ contract Puma is ERC721URIStorage {
             );
             deals[dealID].interestRate = deals[dealID].promisedInterestRate;
         } else {
+            // Revert and delete deal
             // Interest Rate is already 0
             deals[dealID].expirationTimestamp = deals[dealID]
                 .floatingEndTimestamp;
-            transferAllBackPerDeal(dealID);
             transferNFT(
                 deals[dealID].companyAddress,
                 false,
                 deals[dealID].tokenID
             );
+            transferAllBackPerDeal(dealID); // deletes the deal as well
         }
     }
 }

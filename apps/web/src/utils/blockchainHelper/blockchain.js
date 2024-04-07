@@ -2,7 +2,7 @@ import { ethers } from "ethers";
 import { MyNFT } from "./MyNFT";
 
 const NETWORK = "sepolia";
-const NFTContractAddress = "0x8a82A1dd9229CB474B53E410c6401433B3253139";
+const NFTContractAddress = "0x39a70B85d2E7087Dc6ec1D07FaB661bd5f6B671d";
 const NFT_ABI = MyNFT.abi;
 
 export { NFT_ABI, NFTContractAddress };

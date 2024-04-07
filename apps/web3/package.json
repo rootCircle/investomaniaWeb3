@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "compile": "hardhat compile",
-    "deploy:sepolia": "hardhat ignition deploy ./ignition/modules/Puma.js --network sepolia"
+    "deploy:sepolia": "hardhat ignition deploy --reset ./ignition/modules/Puma.js --network sepolia"
   },
   "keywords": [],
   "author": "",
