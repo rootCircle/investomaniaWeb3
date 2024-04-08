@@ -38,8 +38,8 @@ To get started with the project, follow these steps:
 
    - Create a `.env` file in the root directory.
    - Define the following environment variables:
-     - `PINNATA_BASE_URL`: Base URL for Pinata API.
-     - `PINNATA_JWT_TOKEN`: JWT token for Pinata API authentication.
+     - `PINATA_BASE_URL`: Base URL for Pinata API.
+     - `PINATA_JWT_TOKEN`: JWT token for Pinata API authentication.
 
 4. Start the frontend application:
 

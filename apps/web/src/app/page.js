@@ -1,6 +1,7 @@
 "use client";
 import Actions from "@/components/Actions";
 import CommonOperations from "@/components/CommonOperations";
+import PinToIPFSUpload from "@/components/PinToIPFSUpload";
 import { useState } from "react";
 
 export default function Home() {
@@ -9,7 +10,7 @@ export default function Home() {
   const [walletAddress, setWalletAddress] = useState(null);
 
   return (
-    <div className="bg-black h-[100vh]">
+    <div className="bg-black h-min-[100vh]">
       <div className="mt-auto p-10">
         <h1 className="text-[3rem] text-transparent bg-gradient-to-r from-blue-400 to-lime-600 bg-clip-text font-bold">pip install blockchain</h1>
         <div className="border border-white rounded-xl p-4 mt-12 mx-12">
@@ -19,6 +20,8 @@ export default function Home() {
             NFTContract={NFTContract}
             setNFTContract={setNFTContract}
           />
+
+          <PinToIPFSUpload />
         </div>
 
         <div className="border border-white rounded-xl p-4 mt-8 mx-12">

@@ -5,7 +5,6 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "env": ["PINNATA_JWT_TOKEN", "PINNATA_BASE_URL"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "lint": {
