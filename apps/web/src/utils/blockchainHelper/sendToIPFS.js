@@ -32,12 +32,32 @@ export const pinFileToIPFS = async (fileData) => {
     );
     console.log("File uploaded to IPFS:", res.data);
     console.log(`https://ipfs.io/ipfs/${res.data.IpfsHash}`)
-
+    
+    const sellerAddress = "0xu3289483242";
     const metadataObj = {
-      sellerAddress: "0xaudhskdahskdi",
-      createdAt: Date().toString(),
-      systemAddress: "0xaksjhjdhasjkd",
-      billIpfsHash: `${res.data.IpfsHash}`,
+      description: "The NFT to the Bill uploaded by the Company",
+      external_url: `${PINATA_BASE_URL}/ipfs/${res.data.IpfsHash}`,
+      image: "https://i1.sndcdn.com/avatars-000672907826-20999i-t240x240.jpg",
+      name: `Company Bill NFT ${sellerAddress}`,
+      attributes: [
+        {
+          trait_type: "sellerAddress",
+          value: sellerAddress
+        },
+        {
+          display_type: "date",
+          trait_type: "createdAt",
+          value: Date().toString()
+        },
+        {
+          trait_type: "systemAddress",
+          value: "0x876876876876876"
+        },
+        {
+          trait_type: "billAddress",
+          value: `${PINATA_BASE_URL}/ipfs/${res.data.IpfsHash}`
+        }
+      ]
     };
 
     const metadata = JSON.stringify(metadataObj);

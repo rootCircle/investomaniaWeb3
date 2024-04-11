@@ -4,6 +4,9 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
+// Need to be rewritten
+// Bugs: at contract creation 30% money is transferred to seller not admin 
+
 contract Puma is ERC721URIStorage {
     uint256 private _tokenIdCounter;
     uint256 private investmentIdCounter;
